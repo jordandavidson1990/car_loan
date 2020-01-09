@@ -33,15 +33,19 @@ function MainContainer() {
             </section>
             <div>
                 {showTable ?
-                    <LoanSchemeTable
-                        vehicle={vehicleDetails}
-                        localeStringSpecs={localeStringSpecs}
-                        uk={uk} /> : null}
+                    <div>
+                        <LoanSchemeTable
+                            vehicle={vehicleDetails}
+                            localeStringSpecs={localeStringSpecs}
+                            uk={uk} />
+                        <PaybackTable
+                            vehicle={vehicleDetails}
+                            localeStringSpecs={localeStringSpecs}
+                            uk={uk} />
+
+                    </div> : null}
             </div>
-            <PaybackTable
-                vehicle={vehicleDetails}
-                localeStringSpecs={localeStringSpecs}
-                uk={uk} />
+
 
         </>
     )
