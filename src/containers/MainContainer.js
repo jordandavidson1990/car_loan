@@ -3,6 +3,7 @@ import Form from '../components/Form'
 import PriceForm from '../components/PriceForm'
 import LoanSchemeTable from '../components/LoanSchemeTable'
 import './MainContainer.css'
+import PaybackTable from '../components/PaybackTable';
 
 function MainContainer() {
 
@@ -19,6 +20,8 @@ function MainContainer() {
         setShowTable(true)
     }
 
+    const localeStringSpecs = { maximumFractionDigits: 2, style: 'currency', currency: 'GBP' }
+    const uk = 'en-uk';
 
     return (
         <>
@@ -30,8 +33,15 @@ function MainContainer() {
             </section>
             <div>
                 {showTable ?
-                    <LoanSchemeTable vehicle={vehicleDetails} /> : null}
+                    <LoanSchemeTable
+                        vehicle={vehicleDetails}
+                        localeStringSpecs={localeStringSpecs}
+                        uk={uk} /> : null}
             </div>
+            <PaybackTable
+                vehicle={vehicleDetails}
+                localeStringSpecs={localeStringSpecs}
+                uk={uk} />
 
         </>
     )

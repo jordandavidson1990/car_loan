@@ -1,7 +1,7 @@
 import React from 'react'
 import './LoanSchemeTable.css'
 
-function LoanSchemeTable({ vehicle }) {
+function LoanSchemeTable({ vehicle, localeStringSpecs, uk }) {
     return (
 
         < table >
@@ -15,10 +15,10 @@ function LoanSchemeTable({ vehicle }) {
                     <td>Finance Years</td>
                 </tr>
                 <tr>
-                    <td>{vehicle.price}</td>
-                    <td>{vehicle.depositAmount}</td>
-                    <td>{vehicle.deliveryDate}</td>
-                    <td>{vehicle.financeOption}</td>
+                    <td>{vehicle.price.toLocaleString(uk, localeStringSpecs)}</td>
+                    <td>{vehicle.depositAmount.toLocaleString(uk, localeStringSpecs)}</td>
+                    <td>{vehicle.deliveryDate.toLocaleString(uk, localeStringSpecs)}</td>
+                    <td>{vehicle.financeOption.toLocaleString(uk, localeStringSpecs)}</td>
                 </tr>
             </tbody>
         </table >
