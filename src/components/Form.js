@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Form({ vehiclePrice }) {
+function Form({ vehiclePrice, calculateLoanScheme }) {
 
     const [minimumDeposit, setMinimumDeposit] = useState(0)
 
@@ -10,24 +10,23 @@ function Form({ vehiclePrice }) {
 
     const getMinDeposit = () => {
         // min deposit is 15% of price
-        console.log('minimumDeposit', minimumDeposit);
         setMinimumDeposit(vehiclePrice * 0.15)
     }
 
     const handleForm = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+        makeVehicle(event.target);
     }
 
-
-
-    // const minimumDeposit = () => {
-    //     debugger
-    //     // minimum deposit is 15% of vehicle price
-    //     const min = vehiclePrice * 0.15;
-    //     return min;
-    // }
-
-
+    const makeVehicle = (target) => {
+        const newVehicle = ({
+            price: vehiclePrice,
+            depositAmount: target.depositAmount.value,
+            deliveryDate: target.deliveryDate.value,
+            financeOption: target.financeOption.value
+        })
+        calculateLoanScheme(newVehicle);
+    }
 
     return (
         <form onSubmit={handleForm}>
