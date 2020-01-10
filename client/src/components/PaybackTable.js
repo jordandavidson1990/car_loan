@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import moment from 'moment'
+import './PaybackTable'
 
 function PaybackTable({ vehicle, localeStringSpecs, uk }) {
 
-    const [currentPaymentDate, setCurrentPaymentDate] = useState(vehicle.deliveryDate)
+    const [currentPaymentDate] = useState(vehicle.deliveryDate)
     // number of rows will the number of finance years * months in a year
     const numberOfRowsNeeded = vehicle.financeOption * 12;
 
@@ -33,6 +34,7 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
     }
 
     const nextMonth = (numberOfMonthsAwayFromStart) => {
+
         const currentDate = currentPaymentDate
         const dateForm = new Date(currentDate)
 
@@ -42,16 +44,11 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
         let first = null
         for (let i = 0; i <= 7; i++) {
             let j = (new Date(moment(start.setDate(start.getDate() + 1))))
-            // console.log(j.getDay())
             if (j.getDay() === 1) {
                 first = j
             }
         }
         return first.toDateString()
-
-
-        // setCurrentPaymentDate(current.toDateString())
-        // return current.toDateString()
     }
 
     function totalRepayment() {
@@ -70,8 +67,8 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
             rowsArray.push(
                 <tr key={66}>
                     <th>Month: 1</th>
-                    <th>{firstMonth.toLocaleString(uk, localeStringSpecs)}</th>
-                    <th>{getFirstPayment(vehicle.deliveryDate)}</th>
+                    <td>{firstMonth.toLocaleString(uk, localeStringSpecs)}</td>
+                    <td>{getFirstPayment(vehicle.deliveryDate)}</td>
                 </tr>
             )
 
@@ -79,8 +76,8 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
                 rowsArray.push(
                     <tr key={i}>
                         <th>Month:{i + 1}</th>
-                        <th>{paybackEachMonth.toLocaleString(uk, localeStringSpecs)}</th>
-                        <th>{nextMonth(i + 1)}</th>
+                        <td>{paybackEachMonth.toLocaleString(uk, localeStringSpecs)}</td>
+                        <td>{nextMonth(i)}</td>
                     </tr>
                 )
             }
@@ -89,14 +86,15 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
             rowsArray.push(
                 <tr key={-1}>
                     <th>Month:{numberOfRowsNeeded}</th>
-                    <th>{finalPayment.toLocaleString(uk, localeStringSpecs)}</th>
-                    <th>{nextMonth(numberOfRowsNeeded)}</th>
+                    <td>{finalPayment.toLocaleString(uk, localeStringSpecs)}</td>
+                    <td>{nextMonth(numberOfRowsNeeded)}</td>
                 </tr>
             )
             rowsArray.push(
                 <tr key={'total'}>
                     <th>Total</th>
-                    <th>{totalRepayment()}</th>
+                    <td>{totalRepayment()}</td>
+
                 </tr>
             )
         }

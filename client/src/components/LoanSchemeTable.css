@@ -1,8 +1,9 @@
 table {
     border-spacing: 10px;
-    margin: auto;
     text-align: center;
     background-color: #f1f1c1;
+    width: 90%;
+    margin: 10px auto;
 }
 
 table,
@@ -11,5 +12,14 @@ td,
 caption {
     border: 1px solid black;
     border-collapse: collapse;
-    background-color: #f1f1c1;
+    background-color: white;
+}
+
+th {
+    padding: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #2d3737;
+    color: white;
 }

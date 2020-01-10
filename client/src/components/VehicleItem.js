@@ -9,9 +9,9 @@ function VehicleItem({ vehicle, localeStringSpecs, uk }) {
 
     function photo() {
         if (!vehicle.photos[0]) {
-            return <img src={require('../assets/no-image.png')}></img>
+            return <img src={require('../assets/no-image.png')} alt="unphotographed-car"></img>
         } else {
-            return <img src={vehicle.photos[0]}></img>
+            return <img src={vehicle.photos[0]} alt={vehicle.name}></img>
         }
     }
 
@@ -54,7 +54,5 @@ function VehicleItem({ vehicle, localeStringSpecs, uk }) {
         </>
     )
 }
-{/* <span>Per Month: {vehicle.salesInfo.pricing.monthlyPayment.toLocaleString(uk, localeStringSpecs)}</span>
-                <span>Deposit: {vehicle.salesInfo.pricing.deposit.toLocaleString(uk, localeStringSpecs)}</span> */}
 
 export default VehicleItem

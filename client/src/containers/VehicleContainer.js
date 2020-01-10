@@ -7,16 +7,18 @@ function VehicleContainer({ vehicle, localeStringSpecs, uk }) {
     const [potentialVehicles, setPotentialVehicles] = useState([])
 
     useEffect(() => {
+        const getPotentialVehicles = () => {
+            console.log('fetch')
+            fetch(url + `?payment_type=monthly&min_price=100&max_price=${vehicle.price / (vehicle.financeOption * 12)}&sort_order=monthly_payment_up`)
+                .then(res => res.json())
+                .then(data => setPotentialVehicles(data.searchResults.slice(0, 6)))
+        }
         getPotentialVehicles()
-    }, [vehicle]
+    }
     )
 
 
-    const getPotentialVehicles = () => {
-        fetch(url + `?payment_type=monthly&min_price=0&max_price=${vehicle.price / (vehicle.financeOption * 12)}&sort_order=monthly_payment_up`)
-            .then(res => res.json())
-            .then(data => setPotentialVehicles(data.searchResults.slice(0, 6)))
-    }
+
     return (
         <>
             <VehicleList

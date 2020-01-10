@@ -33,3 +33,17 @@ ul {
     border-left: 1px solid #e5e5e5;
     padding-left: 7px;
 }
+
+.condition {
+    padding-right: 7px;
+}
+
+li {
+    display: inline;
+
+}
+
+h2,
+span {
+    padding-left: 7px;
+}

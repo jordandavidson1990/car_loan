@@ -5,13 +5,14 @@ function Form({ vehiclePrice, calculateLoanScheme }) {
     const [minimumDeposit, setMinimumDeposit] = useState(0)
 
     useEffect(() => {
+        const getMinDeposit = () => {
+            // min deposit is 15% of price
+            setMinimumDeposit(vehiclePrice * 0.15)
+        }
         getMinDeposit()
-    }, [vehiclePrice])
+    })
 
-    const getMinDeposit = () => {
-        // min deposit is 15% of price
-        setMinimumDeposit(vehiclePrice * 0.15)
-    }
+
 
     const handleForm = (event) => {
         event.preventDefault();

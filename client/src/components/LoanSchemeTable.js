@@ -9,10 +9,10 @@ function LoanSchemeTable({ vehicle, localeStringSpecs, uk }) {
             <caption></caption>
             <tbody>
                 <tr>
-                    <td>Vehicle Price</td>
-                    <td>Deposit Amount</td>
-                    <td>Delivery Date</td>
-                    <td>Finance Years</td>
+                    <th>Vehicle Price</th>
+                    <th>Deposit Amount</th>
+                    <th>Delivery Date</th>
+                    <th>Finance Years</th>
                 </tr>
                 <tr>
                     <td>{vehicle.price.toLocaleString(uk, localeStringSpecs)}</td>
