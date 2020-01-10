@@ -1,0 +1,6 @@
+.vehicleList {
+    align-items: initial;
+    display: flex;
+    flex-flow: row wrap;
+    transition: opacity 0.2s ease;
+}

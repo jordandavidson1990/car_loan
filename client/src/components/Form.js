@@ -33,7 +33,7 @@ function Form({ vehiclePrice, calculateLoanScheme }) {
             <label htmlFor="depositAmount">Deposit Amount (Min 15% of Vehicle Price): </label>
             <input type="number" id="depositAmount" min={minimumDeposit} placeholder={vehiclePrice * 0.15} />
             <label htmlFor="deliveryDate">Delivery Date: </label>
-            <input type="date" name="deliveryDate" id="deliveryDate" />
+            <input required type="date" name="deliveryDate" id="deliveryDate" />
             <label htmlFor="financeOption">Finance Years: </label>
             <select name="financeOption" id="financeOption">
                 <option disabled>How many finance years...</option>

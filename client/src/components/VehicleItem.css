@@ -1,0 +1,35 @@
+.vehicleItem {
+    border: 2px black solid;
+    margin: 0 7px 12px;
+    max-width: 476px;
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 46vw;
+}
+
+img {
+    max-width: -webkit-fill-available;
+}
+
+.usage-info {
+    border-top: 1px solid #e5e5e5;
+    color: #818787;
+    font-size: 12px;
+    padding: 3px 14px;
+}
+
+ul {
+    list-style-type: none;
+
+}
+
+.mileage {
+    display: inline;
+    margin-right: 7px;
+}
+
+.mpg,
+.condition {
+    border-left: 1px solid #e5e5e5;
+    padding-left: 7px;
+}

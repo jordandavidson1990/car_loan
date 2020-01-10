@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Form from '../components/Form'
 import PriceForm from '../components/PriceForm'
 import LoanSchemeTable from '../components/LoanSchemeTable'
 import './MainContainer.css'
 import PaybackTable from '../components/PaybackTable';
+import VehicleContainer from './VehicleContainer'
 
 function MainContainer() {
 
@@ -42,10 +43,12 @@ function MainContainer() {
                             vehicle={vehicleDetails}
                             localeStringSpecs={localeStringSpecs}
                             uk={uk} />
-
+                        <VehicleContainer
+                            vehicle={vehicleDetails}
+                            localeStringSpecs={localeStringSpecs}
+                            uk={uk} />
                     </div> : null}
             </div>
-
 
         </>
     )
