@@ -9,6 +9,7 @@ function PriceForm({ passPrice }) {
 
     return (
         <form onKeyUp={handleKeyUp}>
+            <h3>Find out Monthly Repayment Costs</h3>
             <label htmlFor="vehiclePrice">Vehicle Price: </label>
             <input required type="number" id="vehiclePrice" min={1} />
         </form>

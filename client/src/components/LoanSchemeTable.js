@@ -6,7 +6,7 @@ function LoanSchemeTable({ vehicle, localeStringSpecs, uk }) {
 
         < table >
             <thead></thead>
-            <caption></caption>
+            <caption>Car Price Summary</caption>
             <tbody>
                 <tr>
                     <th>Vehicle Price</th>

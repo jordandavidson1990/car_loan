@@ -66,28 +66,31 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
         if (numberOfRowsNeeded) {
             rowsArray.push(
                 <tr key={66}>
-                    <th>Month: 1</th>
+                    <th>1</th>
                     <td>{firstMonth.toLocaleString(uk, localeStringSpecs)}</td>
                     <td>{getFirstPayment(vehicle.deliveryDate)}</td>
+                    <td>Includes £88 arrangement fee.</td>
                 </tr>
             )
 
             for (let i = 1; i < numberOfRowsNeeded - 1; i++) {
                 rowsArray.push(
                     <tr key={i}>
-                        <th>Month:{i + 1}</th>
+                        <th>{i + 1}</th>
                         <td>{paybackEachMonth.toLocaleString(uk, localeStringSpecs)}</td>
                         <td>{nextMonth(i)}</td>
+                        <td></td>
                     </tr>
                 )
             }
             // last payment incurs additional charge of £20
             const finalPayment = paybackEachMonth + 20
             rowsArray.push(
-                <tr key={-1}>
-                    <th>Month:{numberOfRowsNeeded}</th>
+                <tr key={'final'}>
+                    <th>{numberOfRowsNeeded}</th>
                     <td>{finalPayment.toLocaleString(uk, localeStringSpecs)}</td>
                     <td>{nextMonth(numberOfRowsNeeded)}</td>
+                    <td>Includes £20 completion fee.</td>
                 </tr>
             )
             rowsArray.push(
@@ -104,12 +107,14 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
     return (
         <table>
             <thead></thead>
+            <caption>Repayment Plan</caption>
             <>
                 <tbody>
                     <tr>
                         <th>Month</th>
                         <th>Repayment</th>
                         <th>Payment Date</th>
+                        <th>Notes</th>
                     </tr>
                     <>
                         {paybackColumn(numberOfRowsNeeded)}

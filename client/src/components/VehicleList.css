@@ -5,3 +5,11 @@
     transition: opacity 0.2s ease;
     justify-content: center;
 }
+
+#potentialVehiclesHeading {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    width: 93%;
+}

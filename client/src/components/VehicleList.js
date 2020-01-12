@@ -22,6 +22,7 @@ function VehicleList({ potentialVehicles, localeStringSpecs, uk }) {
     }
     return (
         <>
+            <h3 id="potentialVehiclesHeading">Potential Vehicles</h3>
             <div className="vehicleList">
                 {carList()}
             </div>
