@@ -3,18 +3,18 @@ import VehicleList from '../components/VehicleList'
 import './VehicleContainer'
 
 function VehicleContainer({ vehicle, localeStringSpecs, uk }) {
-    const url = 'http://localhost:3001/getInfo'
+
+    const url = `http://localhost:3001/getInfo?payment_type=monthly&min_price=${vehicle.minMonthly}&max_price=${vehicle.maxMonthly}&sort_order=monthly_payment_up`
     const [potentialVehicles, setPotentialVehicles] = useState([])
 
     useEffect(() => {
         const getPotentialVehicles = () => {
-            console.log('fetch')
-            fetch(url + `?payment_type=monthly&min_price=100&max_price=${vehicle.price / (vehicle.financeOption * 12)}&sort_order=monthly_payment_up`)
+            fetch(url)
                 .then(res => res.json())
                 .then(data => setPotentialVehicles(data.searchResults.slice(0, 6)))
         }
         getPotentialVehicles()
-    }
+    }, []
     )
 
 

@@ -8,6 +8,8 @@ function VehicleList({ potentialVehicles, localeStringSpecs, uk }) {
     }
 
     function carList() {
+        // const arrangedVehicles = potentialVehicles
+        // debugger
         const item = potentialVehicles.map((vehicle, index) => {
             return (
                 <VehicleItem
