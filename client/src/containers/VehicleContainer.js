@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import VehicleList from '../components/VehicleList'
+import VehicleList from '../components/lists/VehicleList'
 import './VehicleContainer'
 
 function VehicleContainer({ vehicle, localeStringSpecs, uk }) {

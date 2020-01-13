@@ -1,8 +1,8 @@
 import React from 'react'
 import MainContainer from './MainContainer'
-import Form from '../components/Form'
+import Form from '../components/forms/Form'
 import { shallow } from 'enzyme'
-import PriceForm from '../components/PriceForm'
+import PriceForm from '../components/forms/PriceForm'
 
 describe('MainContainer', () => {
     let wrapper;

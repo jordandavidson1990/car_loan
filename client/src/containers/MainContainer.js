@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Form from '../components/Form'
-import PriceForm from '../components/PriceForm'
-import LoanSchemeTable from '../components/LoanSchemeTable'
+import Form from '../components/forms/Form'
+import PriceForm from '../components/forms/PriceForm'
+import LoanSchemeTable from '../components/tables/LoanSchemeTable'
 import './MainContainer.css'
-import PaybackTable from '../components/PaybackTable';
+import PaybackTable from '../components/tables/PaybackTable';
 import VehicleContainer from './VehicleContainer'
 
 function MainContainer() {
@@ -14,7 +14,7 @@ function MainContainer() {
 
     const passPrice = (num) => {
 
-        setVehiclePrice(num)
+        setVehiclePrice(parseInt(num))
     }
 
     // shows the table and passes the form info to the tables and list

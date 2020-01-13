@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function PriceForm({ passPrice }) {
 
@@ -16,6 +17,10 @@ function PriceForm({ passPrice }) {
             <input required type="number" id="vehiclePrice" min={1} />
         </form>
     )
+}
+
+PriceForm.propTypes = {
+    passPrice: PropTypes.func
 }
 
 export default PriceForm

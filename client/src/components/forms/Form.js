@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'
 
 function Form({ vehiclePrice, calculateLoanScheme }) {
 
@@ -62,5 +63,11 @@ function Form({ vehiclePrice, calculateLoanScheme }) {
         </form>
     )
 }
+
+Form.propTypes = {
+    vehiclePrice: PropTypes.number,
+    calculateLoanScheme: PropTypes.func
+}
+
 
 export default Form

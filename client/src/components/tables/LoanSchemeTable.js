@@ -1,9 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './LoanSchemeTable.css'
 
 function LoanSchemeTable({ vehicle, localeStringSpecs, uk }) {
     return (
-
         < table >
             <thead></thead>
             <caption>Car Price Summary</caption>
@@ -23,6 +23,12 @@ function LoanSchemeTable({ vehicle, localeStringSpecs, uk }) {
             </tbody>
         </table >
     )
+}
+
+LoanSchemeTable.propTypes = {
+    vehicle: PropTypes.object,
+    localeStringSpecs: PropTypes.string,
+    uk: PropTypes.string
 }
 
 export default LoanSchemeTable

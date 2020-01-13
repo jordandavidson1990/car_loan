@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import moment from 'moment'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import moment from 'moment';
 import './PaybackTable'
 
 function PaybackTable({ vehicle, localeStringSpecs, uk }) {
@@ -24,20 +25,17 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
         let first = null
         for (let i = 0; i <= 7; i++) {
             let j = (new Date(moment(nextMonthFirst.setDate(nextMonthFirst.getDate() + 1))))
-            // console.log(j.getDay())
             if (j.getDay() === 1) {
                 first = j
             }
         }
-
         return first.toDateString()
     }
 
     const nextMonth = (numberOfMonthsAwayFromStart) => {
-
         const currentDate = currentPaymentDate
         const dateForm = new Date(currentDate)
-
+        // gathers the month and changes it by adding number to it for each iteration of loop
         const current = new Date(dateForm.setMonth
             (dateForm.getMonth() + numberOfMonthsAwayFromStart))
         const start = getDate(current)
@@ -69,7 +67,7 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
         let rowsArray = []
         if (numberOfRowsNeeded) {
             rowsArray.push(
-                <tr key={66}>
+                <tr key={'first'}>
                     <th>1</th>
                     <td>{formattedFirstMonthPayment}</td>
                     <td>{getFirstPayment(vehicle.deliveryDate)}</td>
@@ -103,7 +101,6 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
                 <tr key={'total'}>
                     <th>Total</th>
                     <td>{totalRepayment()}</td>
-
                 </tr>
             )
         }
@@ -131,6 +128,12 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
 
         </table >
     )
+}
+
+PaybackTable.propTypes = {
+    vehicle: PropTypes.object,
+    localeStringSpecs: PropTypes.string,
+    uk: PropTypes.string
 }
 
 export default PaybackTable

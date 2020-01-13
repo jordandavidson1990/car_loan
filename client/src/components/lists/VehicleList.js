@@ -1,5 +1,6 @@
 import React from 'react'
 import VehicleItem from './VehicleItem'
+import PropTypes from 'prop-types'
 import './VehicleList.css'
 
 function VehicleList({ potentialVehicles, localeStringSpecs, uk }) {
@@ -27,5 +28,15 @@ function VehicleList({ potentialVehicles, localeStringSpecs, uk }) {
         </>
     )
 }
+
+VehicleList.propTypes = {
+    potentialVehicles: PropTypes.array,
+    localeStringSpecs: PropTypes.string,
+    uk: PropTypes.string
+}
+
+// potentialVehicles = { potentialVehicles }
+// localeStringSpecs = { localeStringSpecs }
+// uk = { uk }
 
 export default VehicleList

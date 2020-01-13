@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './VehicleItem.css'
 
 function VehicleItem({ vehicle, localeStringSpecs, uk }) {
@@ -10,7 +11,7 @@ function VehicleItem({ vehicle, localeStringSpecs, uk }) {
     function photo() {
         // if no picture is there set the picture as stock photo of coming soon 
         if (!vehicle.photos[0]) {
-            return <img src={require('../assets/no-image.png')} alt="unphotographed-car"></img>
+            return <img src={require('../../assets/no-image.png')} alt="unphotographed-car"></img>
         } else {
             return <img src={vehicle.photos[0]} alt={vehicle.name}></img>
         }
@@ -55,6 +56,13 @@ function VehicleItem({ vehicle, localeStringSpecs, uk }) {
             </div>
         </>
     )
+}
+
+VehicleItem.propTypes = {
+    // vehicle, localeStringSpecs, uk
+    vehicle: PropTypes.object,
+    localeStringSpecs: PropTypes.string,
+    uk: PropTypes.string
 }
 
 export default VehicleItem
