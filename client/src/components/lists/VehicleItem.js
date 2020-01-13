@@ -61,7 +61,7 @@ function VehicleItem({ vehicle, localeStringSpecs, uk }) {
 VehicleItem.propTypes = {
     // vehicle, localeStringSpecs, uk
     vehicle: PropTypes.object,
-    localeStringSpecs: PropTypes.string,
+    localeStringSpecs: PropTypes.object,
     uk: PropTypes.string
 }
 

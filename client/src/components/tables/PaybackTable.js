@@ -132,7 +132,7 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
 
 PaybackTable.propTypes = {
     vehicle: PropTypes.object,
-    localeStringSpecs: PropTypes.string,
+    localeStringSpecs: PropTypes.object,
     uk: PropTypes.string
 }
 

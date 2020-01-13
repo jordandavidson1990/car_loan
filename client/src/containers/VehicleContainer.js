@@ -15,7 +15,7 @@ function VehicleContainer({ vehicle, localeStringSpecs, uk }) {
                 .then(data => setPotentialVehicles(data.searchResults.slice(0, 6)))
         }
         getPotentialVehicles()
-    }, []
+    }, [vehicle]
     )
 
 

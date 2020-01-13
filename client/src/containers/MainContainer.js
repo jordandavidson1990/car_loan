@@ -13,7 +13,6 @@ function MainContainer() {
     const [showTable, setShowTable] = useState(false)
 
     const passPrice = (num) => {
-
         setVehiclePrice(parseInt(num))
     }
 

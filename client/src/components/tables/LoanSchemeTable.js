@@ -16,7 +16,7 @@ function LoanSchemeTable({ vehicle, localeStringSpecs, uk }) {
                 </tr>
                 <tr>
                     <td>{vehicle.price.toLocaleString(uk, localeStringSpecs)}</td>
-                    <td>{vehicle.depositAmount.toLocaleString(uk, localeStringSpecs)}</td>
+                    <td>{parseFloat(vehicle.depositAmount).toLocaleString(uk, localeStringSpecs)}</td>
                     <td>{vehicle.deliveryDate.toLocaleString(uk, localeStringSpecs)}</td>
                     <td>{vehicle.financeOption.toLocaleString(uk, localeStringSpecs)}</td>
                 </tr>
@@ -27,7 +27,7 @@ function LoanSchemeTable({ vehicle, localeStringSpecs, uk }) {
 
 LoanSchemeTable.propTypes = {
     vehicle: PropTypes.object,
-    localeStringSpecs: PropTypes.string,
+    localeStringSpecs: PropTypes.object,
     uk: PropTypes.string
 }
 

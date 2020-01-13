@@ -31,12 +31,9 @@ function VehicleList({ potentialVehicles, localeStringSpecs, uk }) {
 
 VehicleList.propTypes = {
     potentialVehicles: PropTypes.array,
-    localeStringSpecs: PropTypes.string,
+    localeStringSpecs: PropTypes.object,
     uk: PropTypes.string
 }
 
-// potentialVehicles = { potentialVehicles }
-// localeStringSpecs = { localeStringSpecs }
-// uk = { uk }
 
 export default VehicleList
