@@ -5,10 +5,6 @@ const cors = require('cors');
 
 app.use(cors())
 
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
-
 // fetching on the frontend gives a cors issue so made request on backed while using cors()
 app.get('/getInfo', (req, res) => {
     // fetches min and max from the response.req.query

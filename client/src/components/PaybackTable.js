@@ -8,6 +8,7 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
     // number of rows will the number of finance years * months in a year
     const numberOfRowsNeeded = vehicle.financeOption * 12;
 
+
     const getDate = (date) => {
         // will return the number of the day of the week it responds on
         const momentDate = moment(date);
@@ -19,7 +20,6 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
 
     const getFirstPayment = (date) => {
         // first payment is the first monday the following month
-        // debugger
         const nextMonthFirst = getDate(date)
         let first = null
         for (let i = 0; i <= 7; i++) {
@@ -52,24 +52,28 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
     }
 
     function totalRepayment() {
-        // total is price - deposit then plus the £88 start fee and £20 end fee
-        return ((vehicle.price - vehicle.depositAmount) + 108).toLocaleString(uk, localeStringSpecs)
+        // total is price - deposit then plus the start fee and  end fee
+        const amount = (parseInt(vehicle.price) - parseInt(vehicle.depositAmount)) + (parseInt(vehicle.startFee) + parseInt(vehicle.endFee))
+
+        const formattedTotal = parseFloat(amount).toLocaleString(uk, localeStringSpecs)
+        return formattedTotal
     }
 
     function paybackColumn(numberOfRowsNeeded) {
-
         // calculate how much pay is required each month minus deposit
         const paybackEachMonth = (vehicle.price - vehicle.depositAmount) / numberOfRowsNeeded
-        // first month add on £88 arrangement fee
-        const firstMonth = paybackEachMonth + 88
+        // first month add on arrangement fee
+        const startFee = parseInt(vehicle.startFee)
+        const firstMonth = paybackEachMonth + startFee
+        const formattedFirstMonthPayment = firstMonth.toLocaleString(uk, localeStringSpecs)
         let rowsArray = []
         if (numberOfRowsNeeded) {
             rowsArray.push(
                 <tr key={66}>
                     <th>1</th>
-                    <td>{firstMonth.toLocaleString(uk, localeStringSpecs)}</td>
+                    <td>{formattedFirstMonthPayment}</td>
                     <td>{getFirstPayment(vehicle.deliveryDate)}</td>
-                    <td>Includes £88 arrangement fee.</td>
+                    <td>Includes £{vehicle.startFee.toLocaleString(uk, localeStringSpecs)} arrangement fee.</td>
                 </tr>
             )
 
@@ -84,13 +88,15 @@ function PaybackTable({ vehicle, localeStringSpecs, uk }) {
                 )
             }
             // last payment incurs additional charge of £20
-            const finalPayment = paybackEachMonth + 20
+            let finalPayment = paybackEachMonth + parseInt(vehicle.endFee)
+            const formattedPayment = finalPayment.toLocaleString(uk, localeStringSpecs)
+
             rowsArray.push(
                 <tr key={'final'}>
                     <th>{numberOfRowsNeeded}</th>
-                    <td>{finalPayment.toLocaleString(uk, localeStringSpecs)}</td>
+                    <td>{formattedPayment}</td>
                     <td>{nextMonth(numberOfRowsNeeded)}</td>
-                    <td>Includes £20 completion fee.</td>
+                    <td>Includes £{vehicle.endFee} completion fee.</td>
                 </tr>
             )
             rowsArray.push(

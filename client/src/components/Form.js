@@ -24,7 +24,9 @@ function Form({ vehiclePrice, calculateLoanScheme }) {
             deliveryDate: target.deliveryDate.value,
             financeOption: target.financeOption.value,
             minMonthly: target.minMonthly.value,
-            maxMonthly: target.maxMonthly.value
+            maxMonthly: target.maxMonthly.value,
+            startFee: target.startFee.value,
+            endFee: target.endFee.value
         })
         calculateLoanScheme(newVehicle);
     }
@@ -47,6 +49,14 @@ function Form({ vehiclePrice, calculateLoanScheme }) {
             <input type="number" id="maxMonthly" min={0} placeholder={0} required />
             <label htmlFor="minMonthly">Min Monthly Repayment:</label>
             <input type="number" id="minMonthly" min={0} required placeholder={0} />
+            <h4>Change Fees</h4>
+            <label htmlFor="startFee">Starting Fee</label>
+            <input type="number" placeholder={88}
+                id="startFee" required />
+            <label htmlFor="EndFee">End Fee</label>
+            <input type="number" placeholder={20} required
+                id="endFee" />
+
 
             <input type="submit" />
         </form>

@@ -8,6 +8,7 @@ function VehicleItem({ vehicle, localeStringSpecs, uk }) {
     const priceInfo = vehicle.salesInfo.pricing
 
     function photo() {
+        // if no picture is there set the picture as stock photo of coming soon 
         if (!vehicle.photos[0]) {
             return <img src={require('../assets/no-image.png')} alt="unphotographed-car"></img>
         } else {
@@ -35,6 +36,7 @@ function VehicleItem({ vehicle, localeStringSpecs, uk }) {
     }
 
     function deposit() {
+        // some cars dont have a deposit amount
         if (!priceInfo.deposit) { return null }
         return <span>Deposit: {priceInfo.deposit.toLocaleString(uk, localeStringSpecs)}
         </span>

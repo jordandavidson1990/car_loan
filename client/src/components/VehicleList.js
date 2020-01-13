@@ -4,12 +4,10 @@ import './VehicleList.css'
 
 function VehicleList({ potentialVehicles, localeStringSpecs, uk }) {
     if (!potentialVehicles) {
-        return <p>Find you next dream car...</p>
+        return <p>Find your next dream car...</p>
     }
 
     function carList() {
-        // const arrangedVehicles = potentialVehicles
-        // debugger
         const item = potentialVehicles.map((vehicle, index) => {
             return (
                 <VehicleItem
