@@ -12,8 +12,6 @@ function Form({ vehiclePrice, calculateLoanScheme }) {
         getMinDeposit()
     })
 
-
-
     const handleForm = (event) => {
         event.preventDefault();
         makeVehicle(event.target);

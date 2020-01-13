@@ -2,6 +2,8 @@ import React from 'react'
 
 function PriceForm({ passPrice }) {
 
+    // price form in own form in order to automatically calculate 15% for deposit amount
+
     const handleKeyUp = (event) => {
         event.preventDefault()
         passPrice(event.target.value);

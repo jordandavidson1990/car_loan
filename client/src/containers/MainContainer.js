@@ -13,21 +13,25 @@ function MainContainer() {
     const [showTable, setShowTable] = useState(false)
 
     const passPrice = (num) => {
+
         setVehiclePrice(num)
     }
 
+    // shows the table and passes the form info to the tables and list
     const calculateLoanScheme = (vehicle) => {
         setVehicleDetails(vehicle);
         setShowTable(true)
     }
 
+    // change the number to currency for readability
     const localeStringSpecs = { maximumFractionDigits: 2, style: 'currency', currency: 'GBP' }
     const uk = 'en-uk';
 
     return (
         <>
             <section className="form">
-                <PriceForm passPrice={passPrice} />
+                <PriceForm
+                    passPrice={passPrice} />
                 <Form
                     vehiclePrice={vehiclePrice}
                     calculateLoanScheme={calculateLoanScheme} />

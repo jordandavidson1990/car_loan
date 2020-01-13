@@ -8,6 +8,7 @@ function VehicleContainer({ vehicle, localeStringSpecs, uk }) {
     const [potentialVehicles, setPotentialVehicles] = useState([])
 
     useEffect(() => {
+        // fetches the vehicles from the backend and slices it so it is only the top 6
         const getPotentialVehicles = () => {
             fetch(url)
                 .then(res => res.json())
