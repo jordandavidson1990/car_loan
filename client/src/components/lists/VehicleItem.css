@@ -9,6 +9,7 @@
 
 img {
     max-width: -webkit-fill-available;
+    max-height: 50vh;
 }
 
 .usage-info {

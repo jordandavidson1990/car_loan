@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Form from '../components/forms/Form'
 import PriceForm from '../components/forms/PriceForm'
+import Header from '../components/Header'
 import LoanSchemeTable from '../components/tables/LoanSchemeTable'
 import './MainContainer.css'
 import PaybackTable from '../components/tables/PaybackTable';
@@ -28,6 +29,7 @@ function MainContainer() {
 
     return (
         <>
+            <Header />
             <section className="form">
                 <PriceForm
                     passPrice={passPrice} />

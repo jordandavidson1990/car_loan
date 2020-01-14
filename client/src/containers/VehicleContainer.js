@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types';
 import VehicleList from '../components/lists/VehicleList'
 import './VehicleContainer'
 
@@ -15,7 +16,7 @@ function VehicleContainer({ vehicle, localeStringSpecs, uk }) {
                 .then(data => setPotentialVehicles(data.searchResults.slice(0, 6)))
         }
         getPotentialVehicles()
-    }, [vehicle]
+    }, [vehicle, url]
     )
 
 
@@ -29,6 +30,12 @@ function VehicleContainer({ vehicle, localeStringSpecs, uk }) {
                 uk={uk} />
         </>
     )
+}
+
+VehicleContainer.propTypes = {
+    vehicle: PropTypes.object,
+    localeStringSpecs: PropTypes.object,
+    uk: PropTypes.string
 }
 
 export default VehicleContainer;

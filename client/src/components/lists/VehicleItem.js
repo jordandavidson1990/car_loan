@@ -18,7 +18,6 @@ function VehicleItem({ vehicle, localeStringSpecs, uk }) {
     }
 
     function usageInfo() {
-
         const summary = vehicle.salesInfo.summary
         return (
             <ul className="usage-info">
@@ -59,7 +58,6 @@ function VehicleItem({ vehicle, localeStringSpecs, uk }) {
 }
 
 VehicleItem.propTypes = {
-    // vehicle, localeStringSpecs, uk
     vehicle: PropTypes.object,
     localeStringSpecs: PropTypes.object,
     uk: PropTypes.string
