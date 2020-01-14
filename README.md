@@ -21,12 +21,12 @@
 ```
 // terminal server directory
 npm install
-npm server:dev
+npm start
 ```
 ```
 // terminal client directory
 npm install
-npm run serve
+npm start
 ```
 
 ## Form
