@@ -19,6 +19,22 @@ function Form({ vehiclePrice, calculateLoanScheme }) {
     }
 
     const makeVehicle = (target) => {
+        let startFee = () => {
+            if (!target.startFee.value) {
+                startFee = 88
+            }
+            else {
+                startFee = target.startFee.value
+            }
+        }
+        let endFee = () => {
+            if (!target.endFee.value) {
+                endFee = 20
+            }
+            else {
+                endFee = target.endFee.value
+            }
+        }
         const newVehicle = ({
             price: vehiclePrice,
             depositAmount: target.depositAmount.value,
@@ -26,8 +42,8 @@ function Form({ vehiclePrice, calculateLoanScheme }) {
             financeOption: target.financeOption.value,
             minMonthly: target.minMonthly.value,
             maxMonthly: target.maxMonthly.value,
-            startFee: target.startFee.value,
-            endFee: target.endFee.value
+            startFee: { startFee },
+            endFee: { endFee }
         })
         calculateLoanScheme(newVehicle);
     }
