@@ -4,4 +4,6 @@ h1 {
     color: white;
     border-bottom: 3px solid #ffde00;
     font-family: "Gotham A", "Gotham B", Gotham, "Montserrat", Verdana, sans-serif;
+    margin-top: 0;
+    padding: 10px;
 }
